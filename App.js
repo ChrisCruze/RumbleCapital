@@ -26,18 +26,22 @@ const firebaseProjectsGet = () => {
       .database()
       .ref("projects")
       .on("value", snapshot => {
-        const database_val = snapshot.val();
-        updateFirebaseProjects(database_val);
+        const fbObject = snapshot.val();
+        const newArr = [];
+        Object.keys(fbObject).map((key, index) => {
+          newArr.push(fbObject[key]);
+        });
+        updateFirebaseProjects(newArr);
       });
   }, []);
 
   return firebaseProjects;
 };
 
-const Project = () => {
+const Project = ({ name, id }) => {
   return (
     <View>
-      <Text>Test</Text>
+      <Text>{name}</Text>
     </View>
   );
 };
