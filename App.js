@@ -1,8 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Fragment, useState, useEffect } from "react";
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Animated, FlatList } from "react-native";
 
 import * as firebase from "firebase";
+
+const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
 var firebaseConfig = {
   apiKey: "AIzaSyBbaNyXEQHBVLf_CRx7pMOSeTycFKGwF5Q",
@@ -32,29 +34,47 @@ const firebaseProjectsGet = () => {
   return firebaseProjects;
 };
 
-const storeHighScore = (userId, score) => {
-  firebase
-    .database()
-    .ref("projects/" + userId)
-    .set({
-      highscore: score
-    });
+const Project = () => {
+  return (
+    <View>
+      <Text>Test</Text>
+    </View>
+  );
+};
+const ProjectsList = ({ scrollAnimation, firebaseProjects }) => {
+  return (
+    <AnimatedFlatList
+      onScroll={Animated.event(
+        [
+          {
+            nativeEvent: { contentOffset: { y: scrollAnimation } }
+          }
+        ],
+        {
+          useNativeDriver: true
+        }
+      )}
+      // refreshing={loading}
+      scrollEventThrottle={16}
+      showsVerticalScrollIndicator={false}
+      style={styles.list}
+      data={firebaseProjects}
+      keyExtractor={project => project.id}
+      renderItem={({ item }) => {
+        return Project({
+          ...item
+        });
+      }}
+    />
+  );
 };
 
 export default function App() {
-  firebaseProjectsGet();
+  const [scrollAnimation] = React.useState(new Animated.Value(0));
+  const firebaseProjects = firebaseProjectsGet();
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <TouchableWithoutFeedback
-        onPress={() => {
-          alert("hi");
-          storeHighScore("player two", "1");
-        }}
-      >
-        <Text>Button</Text>
-      </TouchableWithoutFeedback>
-      <StatusBar style="auto" />
+      <ProjectsList firebaseProjects={firebaseProjects} scrollAnimation={scrollAnimation} />
     </View>
   );
 }
