@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   logo: {
-    width: 175,
-    height: 175
+    width: 200,
+    height: 200
   },
   text: {
     alignItems: "center",

@@ -1,0 +1,70 @@
+{
+  "DumpTrump" : {
+    "id" : 1,
+    "image_url" : "https://rumble.capital/images/dump-logo.png",
+    "name" : "DumpTrump",
+    "url" : "https://rumble.capital/dumptrump/"
+  },
+  "push" : {
+    "id" : 2,
+    "image_url" : "https://rumble.capital/images/PUSHLOGO.jpg",
+    "name" : "Push",
+    "url" : "https://pushpirates.com"
+  },
+  "PushForGuerilla" : {
+    "id" : 3,
+    "image_url" : "https://rumble.capital/images/rilla2.png",
+    "name" : "Push for Guerilla",
+    "url" : "https://www.corneezius.com/push-for-gorilla/"
+  },
+  "MurderHornets" : {
+    "id" : 4,
+    "image_url" : "https://rumble.capital/images/murder-logo.png",
+    "name" : "Murder Hornets",
+    "url" : "https://www.corneezius.com/hornet-splash/"
+  },
+  "Picasso" : {
+    "id" : 5,
+    "image_url" : "https://rumble.capital/images/picasso.png",
+    "name" : "Picasso",
+    "url" : "https://picassoapp.art/"
+  },
+  "BlueLagoon" : {
+    "id" : 6,
+    "image_url" : "https://rumble.capital/images/bluelagoon.png",
+    "name" : "Blue Lagoon",
+    "url" : "https://stringofvibes.com/"
+  },
+  "TinderSelfies" : {
+    "id" : 7,
+    "image_url" : "https://rumble.capital/images/cardiology.png",
+    "name" : "TinderSelfies",
+    "url" : "https://tinderselfies.com/"
+  },
+    "SurviveCorona" : {
+    "id" : 8,
+    "image_url" : "https://rumble.capital/images/survivemask.png",
+    "name" : "Survive Corona 2020",
+    "url" : "https://survivecorona2020.com/"
+  } ,
+      "RaveWareCo" : {
+    "id" : 9,
+    "image_url" : "https://rumble.capital/images/rave.png",
+    "name" : "RaveWareCo",
+    "url" : "https://ravewareco.com/"
+  } ,
+      "mobiletique" : {
+    "id" : 9,
+    "image_url" : "https://rumble.capital/images/mqupdated.jpg",
+    "name" : "mobiletique",
+    "url" : "https://mobiletique.com/"
+  }  
+
+  
+}
+
+
+
+
+
+
