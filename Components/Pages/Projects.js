@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { Fragment, useState, useEffect } from "react";
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Animated, FlatList } from "react-native";
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Animated, FlatList, SafeAreaView } from "react-native";
 import { firebaseProjectsGet } from "../../firebase";
 import ProjectsItem from "../Elements/ProjectsItem";
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
@@ -37,9 +37,9 @@ const Projects = () => {
   const [scrollAnimation] = React.useState(new Animated.Value(0));
   const firebaseProjects = firebaseProjectsGet();
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ProjectsList firebaseProjects={firebaseProjects} scrollAnimation={scrollAnimation} />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -50,6 +50,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    padding: 48,
+    flexGrow: 1
   }
 });
