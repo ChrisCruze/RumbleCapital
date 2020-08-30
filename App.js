@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
 
 import * as firebase from "firebase";
@@ -17,23 +17,39 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+const firebaseProjectsGet = () => {
+  const [firebaseProjects, updateFirebaseProjects] = useState([]);
+  useEffect(() => {
+    firebase
+      .database()
+      .ref("projects")
+      .on("value", snapshot => {
+        const database_val = snapshot.val();
+        updateFirebaseProjects(database_val);
+      });
+  }, []);
+
+  return firebaseProjects;
+};
+
 const storeHighScore = (userId, score) => {
   firebase
     .database()
-    .ref("users/" + userId)
+    .ref("projects/" + userId)
     .set({
       highscore: score
     });
 };
 
 export default function App() {
+  firebaseProjectsGet();
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
       <TouchableWithoutFeedback
         onPress={() => {
           alert("hi");
-          storeHighScore("player one", "1");
+          storeHighScore("player two", "1");
         }}
       >
         <Text>Button</Text>
