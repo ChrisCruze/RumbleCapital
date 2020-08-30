@@ -1,3 +1,5 @@
+import React, { Fragment, useState, useEffect } from "react";
+
 import * as firebase from "firebase";
 
 var firebaseConfig = {
@@ -12,4 +14,22 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-export { firebaseConfig as firebase };
+
+export const firebaseProjectsGet = () => {
+  const [firebaseProjects, updateFirebaseProjects] = useState([]);
+  useEffect(() => {
+    firebase
+      .database()
+      .ref("projects")
+      .on("value", snapshot => {
+        const fbObject = snapshot.val();
+        const newArr = [];
+        Object.keys(fbObject).map((key, index) => {
+          newArr.push(fbObject[key]);
+        });
+        updateFirebaseProjects(newArr);
+      });
+  }, []);
+
+  return firebaseProjects;
+};
