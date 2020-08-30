@@ -3,6 +3,8 @@ import React, { Fragment, useState, useEffect } from "react";
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Animated, FlatList, SafeAreaView } from "react-native";
 import { firebaseProjectsGet } from "../../firebase";
 import ProjectsItem from "../Elements/ProjectsItem";
+import Title from "../Elements/Title";
+
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
 const ProjectsList = ({ scrollAnimation, firebaseProjects }) => {
@@ -38,6 +40,7 @@ const Projects = () => {
   const firebaseProjects = firebaseProjectsGet();
   return (
     <SafeAreaView style={styles.container}>
+      <Title text="Rumble Capital" />
       <ProjectsList firebaseProjects={firebaseProjects} scrollAnimation={scrollAnimation} />
     </SafeAreaView>
   );

@@ -8,14 +8,14 @@ const ProjectsItem = ({ name, id, image_url, url }) => {
         Linking.openURL(url);
       }}
     >
-      <View>
+      <View style={styles.project_container}>
         <Image
-          style={styles.tinyLogo}
+          style={styles.logo}
           source={{
             uri: image_url
           }}
         />
-        <Text>{name}</Text>
+        <Text style={styles.text}>{name}</Text>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -25,13 +25,21 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 50
   },
-  tinyLogo: {
-    width: 50,
-    height: 50
+  project_container: {
+    alignItems: "center",
+    justifyContent: "center"
   },
   logo: {
-    width: 66,
-    height: 58
+    width: 175,
+    height: 175
+  },
+  text: {
+    alignItems: "center",
+    flexDirection: "row",
+    alignSelf: "center",
+    justifyContent: "center",
+    fontSize: 30,
+    fontWeight: "bold"
   }
 });
 
