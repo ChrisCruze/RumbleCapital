@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, TouchableWithoutFeedback, Animated, FlatList, S
 import { firebaseProjectsGet } from "../../firebase";
 import ProjectsItem from "../Elements/ProjectsItem";
 import Title from "../Elements/Title";
+import "@expo/match-media";
+import { useMediaQuery } from "react-responsive";
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
@@ -36,11 +38,15 @@ const ProjectsList = ({ scrollAnimation, firebaseProjects }) => {
 };
 
 const Projects = () => {
+  const isMobile = useMediaQuery({
+    maxDeviceWidth: 1224,
+    query: "(max-device-width: 1224px)"
+  });
   const [scrollAnimation] = React.useState(new Animated.Value(0));
   const firebaseProjects = firebaseProjectsGet();
   return (
     <SafeAreaView style={styles.container}>
-      <Title text="Rumble Capital" />
+      {isMobile ? <Title text="Rumble Capital" /> : <Title text="Rumble Capital" />}
       <ProjectsList firebaseProjects={firebaseProjects} scrollAnimation={scrollAnimation} />
     </SafeAreaView>
   );
