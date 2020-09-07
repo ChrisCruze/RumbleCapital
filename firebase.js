@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from "react";
-
 import * as firebase from "firebase";
 
 var firebaseConfig = {

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "rumble-capital",
+    "name": "Rumble Capital",
     "slug": "rumble-capital",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,14 +13,21 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rumble.capital"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "android": {
+      "package": "com.rumble.capital",
+      "versionCode": 7
+    },
+    "description": "",
+    "githubUrl": "https://github.com/ChrisCruze/RumbleCapital"
   }
 }
